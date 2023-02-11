@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        $table->foreignId('article_id')->constrained();
-        $table->foreignId('tag_id')->constrained();
+        Schema::create('article_tag', function (Blueprint $table) {
+            $table->foreignId('article_id')->constrained();
+            $table->foreignId('tag_id')->constrained();
+        });
+        
     }
 
     /**
