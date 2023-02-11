@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <a href="/" class="flex justify-center items-center">
+        <x-application-logo class="w-20 h-20 text-gray-500 fill-current"/>
+    </a>
+
     <div class="mb-4 text-sm text-gray-600">
         {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
     </div>
@@ -14,7 +18,7 @@
             @csrf
 
             <div>
-                <x-primary-button>
+                <x-primary-button class="w-full">
                     {{ __('Resend Verification Email') }}
                 </x-primary-button>
             </div>
@@ -23,9 +27,9 @@
         <form method="POST" action="{{ route('logout') }}">
             @csrf
 
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <x-primary-button class="w-full">
                 {{ __('Log Out') }}
-            </button>
+            </x-primary-button>
         </form>
     </div>
 </x-guest-layout>
