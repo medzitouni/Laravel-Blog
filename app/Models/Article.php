@@ -12,23 +12,24 @@ class Article extends Model
     protected $fillable = [
         'title',
         'article',
+        'slug',
         'image',
         'user_id',
-        'category_id'
+        'category_id',
     ];
 
 
-    public function category() : BelongsTo
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function user() : BelongsTo 
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function tag() : BelongsToMany 
+    public function tags()
     {
         return $this->belongsToMany(Tag::class);
     }
