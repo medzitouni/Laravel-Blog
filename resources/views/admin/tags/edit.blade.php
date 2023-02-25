@@ -1,13 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('Update a category') }}
+        {{ __('Update a tag') }}
     </x-slot>
 
     <div>
         
   
             <div class="w-full px-6 py-4 bg-white rounded shadow-md ring-1 ring-gray-900/10">
-              <form method="POST" action="{{ route('categories.update', $category->id) }}">
+              <form method="POST" action="{{ route('tags.update', $tag->id) }}">
                 {{ method_field('put') }}
                 {{ csrf_field() }}
                 <!-- Name -->
@@ -18,7 +18,7 @@
   
                   <input
                     class="block w-full mt-1 border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 placeholder:text-right focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                    type="text" name="name" value="{{$category->name}}"placeholder="255" />
+                    type="text" name="name" value="{{$tag->name}}"placeholder="255" />
                 </div>
   
   

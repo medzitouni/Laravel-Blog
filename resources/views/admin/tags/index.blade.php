@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        {{ __('Categories') }}
+        {{ __('Tags') }}
     </x-slot>
 
     <div class="container max-w-7xl mx-auto mt-8">
@@ -13,7 +13,7 @@
 
         <div class="mb-4 pt-2">
           <div class="flex justify-end">
-            <a class="px-4 py-2 rounded-md bg-sky-500 text-sky-100 hover:bg-sky-600" href="{{ route('categories.create') }}">Create Post</a>
+            <a class="px-4 py-2 rounded-md bg-sky-500 text-sky-100 hover:bg-sky-600" href="{{ route('tags.create') }}">Create Post</a>
           </div>
         </div>
         <div class="flex flex-col">
@@ -27,29 +27,29 @@
                       ID</th>
                     <th
                       class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                      Title</th>
+                      Name</th>
                     <th class="px-6 py-3 text-sm text-left text-gray-500 border-b border-gray-200 bg-gray-50" colspan="3">
                       Action</th>
                   </tr>
                 </thead>
       
                 <tbody class="bg-white">
-                @foreach($categories as $category)
+                @foreach($tags as $tag)
                   <tr>
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                       <div class="flex items-center">
-                        {{ $category->id }}
+                        {{ $tag->id }}
                       </div>
                     </td>
       
                     <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                       <div class="text-sm leading-5 text-gray-900">
-                        {{ $category->name }}
+                        {{ $tag->name }}
                       </div>
                     </td>
 
                     <td class="text-sm font-medium leading-5 text-center whitespace-no-wrap border-b border-gray-200 ">
-                      <a href="{{ route('categories.edit', $category->id) }}" class="text-indigo-600 hover:text-indigo-900">
+                      <a href="{{ route('tags.edit', $tag->id) }}" class="text-indigo-600 hover:text-indigo-900">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                           stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -61,7 +61,7 @@
       
                     </td>
                     <td class="text-sm font-medium leading-5 whitespace-no-wrap border-b border-gray-200 ">
-                      <form action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                      <form action="{{ route('tags.destroy', $tag->id) }}" method="POST">
                         @csrf
                         @method("DELETE")
                         <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-red-600 hover:text-red-800"
@@ -79,7 +79,7 @@
 
                 </tbody>
               </table>
-              {{ $categories->links() }}
+              {{ $tags->links() }}
             </div>
           </div>
         </div>

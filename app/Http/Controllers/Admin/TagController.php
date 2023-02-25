@@ -23,6 +23,24 @@ class TagController extends Controller
     public function store(StoreTagRequest $request)
     {
         $tag = Tag::create($request->all());
-        return redirect()->route('tags.index')->with('success','Category created successfully'); 
+        return redirect()->route('tags.index')->with('success','Tag created successfully'); 
+    }
+
+    public function edit(Tag $tag)
+    {
+        return view('admin.tags.edit', compact('tag'));
+    }
+
+    public function update(StoreTagRequest $request, Tag $tag)
+    {
+        $tag->update($request->all());
+
+        return redirect()->route('tags.index')->with('success','Tag updated successfully'); 
+    }
+
+    public function destroy(Tag $tag)
+    {
+        $tag->delete();
+        return redirect()->route('tags.index')->with('success','Tag deleted successfully');;   
     }
 }

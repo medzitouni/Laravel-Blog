@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\ArticleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('/categories', CategoryController::class);
 
     Route::resource('/tags', TagController::class);
+
+    Route::resource('/articles', ArticleController::class);
 
     Route::view('about', 'admin.about')->name('about');
     Route::get('users', [\App\Http\Controllers\Admin\UserController::class, 'index'])->name('users.index');
